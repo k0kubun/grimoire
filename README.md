@@ -30,6 +30,7 @@ $ grimoire greek
 - Add another dictionary
 - Cache update option `-u`
 - Ignore case output sort
+- Alphabetize non-alphabet chars
 
 ## License
 

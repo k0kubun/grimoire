@@ -8,6 +8,7 @@ import (
 
 var (
 	greekDoc = func() *goquery.Document {
+		// Thanks for Wikipedia
 		sourceUrl := "http://en.wikipedia.org/wiki/List_of_Greek_mythological_figures"
 		doc, err := goquery.NewDocument(sourceUrl)
 		if err != nil {

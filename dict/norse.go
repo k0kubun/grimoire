@@ -8,6 +8,7 @@ import (
 
 var (
 	norseDoc = func() *goquery.Document {
+		// Thanks for Wikipedia
 		sourceUrl := "http://en.wikipedia.org/wiki/List_of_people,_items_and_places_in_Norse_mythology"
 		doc, err := goquery.NewDocument(sourceUrl)
 		if err != nil {
