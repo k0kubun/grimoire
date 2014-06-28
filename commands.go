@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/codegangsta/cli"
 	"github.com/k0kubun/grimoire/dict"
 	"log"
@@ -19,7 +20,11 @@ var commandCommon = cli.Command{
 	Usage: "common English word list",
 	Description: `
 `,
-	Action: dict.CommonDict,
+	Action: func(c *cli.Context) {
+		for _, w := range dict.CommonDict() {
+			fmt.Println(w)
+		}
+	},
 }
 
 var commandGreek = cli.Command{
@@ -27,7 +32,11 @@ var commandGreek = cli.Command{
 	Usage: "greek mythological figures",
 	Description: `
 `,
-	Action: dict.GreekDict,
+	Action: func(c *cli.Context) {
+		for _, w := range dict.GreekDict() {
+			fmt.Println(w)
+		}
+	},
 }
 
 var commandNorse = cli.Command{
@@ -35,7 +44,11 @@ var commandNorse = cli.Command{
 	Usage: "norse gods and goddesses",
 	Description: `
 `,
-	Action: dict.NorseDict,
+	Action: func(c *cli.Context) {
+		for _, w := range dict.NorseDict() {
+			fmt.Println(w)
+		}
+	},
 }
 
 var commandPerson = cli.Command{
@@ -43,7 +56,11 @@ var commandPerson = cli.Command{
 	Usage: "person name in British, French, Italy, Spain, Greek, Finalnd and Russia",
 	Description: `
 `,
-	Action: dict.PersonDict,
+	Action: func(c *cli.Context) {
+		for _, w := range dict.PersonDict() {
+			fmt.Println(w)
+		}
+	},
 }
 
 func debug(v ...interface{}) {

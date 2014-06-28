@@ -3,7 +3,6 @@ package dict
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/codegangsta/cli"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -30,15 +29,9 @@ type Title struct {
 	NetDicTitle string `xml:"span"`
 }
 
-func CommonDict(c *cli.Context) {
-	for _, w := range commonWords() {
-		println(w)
-	}
-}
-
-func commonWords() []string {
+func CommonDict() []string {
 	words := []string{}
-	for ch := 'a'; ch <= 'z'; ch++ {
+	for ch := 'a'; ch <= 'a'; ch++ {
 		ws := wordsStartWith(ch)
 		words = append(words, ws...)
 	}

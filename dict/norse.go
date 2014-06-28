@@ -1,8 +1,5 @@
 package dict
 
-import (
-	"github.com/codegangsta/cli"
-)
-
-func NorseDict(c *cli.Context) {
+func NorseDict() []string {
+	return []string{"not implemented yet"}
 }

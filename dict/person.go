@@ -1,8 +1,5 @@
 package dict
 
-import (
-	"github.com/codegangsta/cli"
-)
-
-func PersonDict(c *cli.Context) {
+func PersonDict() []string {
+	return []string{"not implemented yet"}
 }

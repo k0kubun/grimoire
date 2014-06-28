@@ -1,8 +1,5 @@
 package dict
 
-import (
-	"github.com/codegangsta/cli"
-)
-
-func GreekDict(c *cli.Context) {
+func GreekDict() []string {
+	return []string{"not implemented yet"}
 }
