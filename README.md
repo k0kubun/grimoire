@@ -24,6 +24,11 @@ $ grimoire -h
 $ grimoire greek
 ```
 
+## TODO
+- User-editable dictionary for memoing words you want to use
+- Show dictionary name in output
+- Add another dictionary
+
 ## License
 
 MIT License
