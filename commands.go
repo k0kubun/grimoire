@@ -48,16 +48,7 @@ var commandPerson = cli.Command{
 
 func actionByDictName(name string) func(*cli.Context) {
 	return func(c *cli.Context) {
-		var dict []string
-
-		if isCached(name) {
-			dict = cachedDict(name)
-		} else {
-			dict = dictFuncByName(name)()
-			cacheDict(name, dict)
-		}
-
-		for _, w := range dict {
+		for _, w := range loadDictByName(name) {
 			fmt.Println(w)
 		}
 	}
