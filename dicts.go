@@ -16,12 +16,20 @@ var dictFuncMaps = []DictFuncMap{
 	{"person", dict.PersonDict},
 }
 
-func allDict() []string {
-	all := []string{}
-	for _, dictFuncMap := range dictFuncMaps {
-		all = append(all, loadDictByName(dictFuncMap.Name)...)
+func allDict() (dict []string) {
+	name := "all"
+
+	if isCached(name) {
+		dict = loadDictByName(name)
+	} else {
+		all := []string{}
+		for _, dictFuncMap := range dictFuncMaps {
+			all = append(all, loadDictByName(dictFuncMap.Name)...)
+		}
+		dict = formatDict(all)
+		cacheDict(name, dict)
 	}
-	return formatDict(all)
+	return dict
 }
 
 func loadDictByName(name string) (dict []string) {
@@ -29,6 +37,7 @@ func loadDictByName(name string) (dict []string) {
 		dict = cachedDict(name)
 	} else {
 		dict = dictFuncByName(name)()
+		dict = formatDict(dict)
 		cacheDict(name, dict)
 	}
 	return

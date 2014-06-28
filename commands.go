@@ -50,7 +50,7 @@ func actionByDictName(name string) func(*cli.Context) {
 	return func(c *cli.Context) {
 		dict := loadDictByName(name)
 
-		for _, w := range formatDict(dict) {
+		for _, w := range dict {
 			fmt.Println(w)
 		}
 	}
