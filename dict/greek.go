@@ -15,12 +15,8 @@ var (
 		}
 		return doc
 	}()
-)
 
-func GreekDict() []string {
-	dict := []string{}
-
-	headerIds := []string{
+	greekHeaderIds = []string{
 		"#Gigantes_and_other_\\.22giants\\.22",
 		"#Personified_concepts",
 		"#Chthonic_deities",
@@ -38,17 +34,18 @@ func GreekDict() []string {
 		"#Amazons",
 		"#Inmates_of_Tartarus",
 	}
+)
 
-	for _, headerId := range headerIds {
-		dict = append(dict, wordsForHeaderId(headerId)...)
+func GreekDict() (dict []string) {
+	for _, headerId := range greekHeaderIds {
+		dict = append(dict, wordsForGreekHeaderId(headerId)...)
 	}
-
-	return dict
+	return
 }
 
-func wordsForHeaderId(headerId string) (words []string) {
-	chthronicDeities := greekDoc.Find(headerId).Closest("h3").Next()
-	chthronicDeities.Find("ul li a").Each(func(_ int, s *goquery.Selection) {
+func wordsForGreekHeaderId(headerId string) (words []string) {
+	div := greekDoc.Find(headerId).Closest("h3").Next()
+	div.Find("ul li a").Each(func(_ int, s *goquery.Selection) {
 		word := s.Text()
 		if strings.Count(word, " ") > 0 || strings.Count(word, "[") > 0 {
 			return

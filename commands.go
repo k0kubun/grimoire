@@ -32,7 +32,7 @@ var commandGreek = cli.Command{
 
 var commandNorse = cli.Command{
 	Name:  "norse",
-	Usage: "norse gods and goddesses",
+	Usage: "list of people, items and places in Norse mythology",
 	Description: `
 `,
 	Action: actionByDictName("norse"),
