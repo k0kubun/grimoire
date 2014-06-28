@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/codegangsta/cli"
-	"github.com/k0kubun/grimoire/dict"
 	"log"
 	"os"
 )
@@ -20,7 +19,7 @@ var commandCommon = cli.Command{
 	Usage: "common English word list",
 	Description: `
 `,
-	Action: actionByDict("common", dict.CommonDict),
+	Action: actionByDictName("common"),
 }
 
 var commandGreek = cli.Command{
@@ -28,7 +27,7 @@ var commandGreek = cli.Command{
 	Usage: "greek mythological figures",
 	Description: `
 `,
-	Action: actionByDict("greek", dict.GreekDict),
+	Action: actionByDictName("greek"),
 }
 
 var commandNorse = cli.Command{
@@ -36,7 +35,7 @@ var commandNorse = cli.Command{
 	Usage: "norse gods and goddesses",
 	Description: `
 `,
-	Action: actionByDict("norse", dict.NorseDict),
+	Action: actionByDictName("norse"),
 }
 
 var commandPerson = cli.Command{
@@ -44,16 +43,17 @@ var commandPerson = cli.Command{
 	Usage: "person name in British, French, Italy, Spain, Greek, Finalnd and Russia",
 	Description: `
 `,
-	Action: actionByDict("person", dict.PersonDict),
+	Action: actionByDictName("person"),
 }
 
-func actionByDict(name string, dictFunc func() []string) func(*cli.Context) {
+func actionByDictName(name string) func(*cli.Context) {
 	return func(c *cli.Context) {
 		var dict []string
+
 		if isCached(name) {
 			dict = cachedDict(name)
 		} else {
-			dict = dictFunc()
+			dict = dictFuncByName(name)()
 			cacheDict(name, dict)
 		}
 
