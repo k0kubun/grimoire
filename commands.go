@@ -20,11 +20,7 @@ var commandCommon = cli.Command{
 	Usage: "common English word list",
 	Description: `
 `,
-	Action: func(c *cli.Context) {
-		for _, w := range dict.CommonDict() {
-			fmt.Println(w)
-		}
-	},
+	Action: actionByDict(dict.CommonDict),
 }
 
 var commandGreek = cli.Command{
@@ -32,11 +28,7 @@ var commandGreek = cli.Command{
 	Usage: "greek mythological figures",
 	Description: `
 `,
-	Action: func(c *cli.Context) {
-		for _, w := range dict.GreekDict() {
-			fmt.Println(w)
-		}
-	},
+	Action: actionByDict(dict.GreekDict),
 }
 
 var commandNorse = cli.Command{
@@ -44,11 +36,7 @@ var commandNorse = cli.Command{
 	Usage: "norse gods and goddesses",
 	Description: `
 `,
-	Action: func(c *cli.Context) {
-		for _, w := range dict.NorseDict() {
-			fmt.Println(w)
-		}
-	},
+	Action: actionByDict(dict.NorseDict),
 }
 
 var commandPerson = cli.Command{
@@ -56,11 +44,15 @@ var commandPerson = cli.Command{
 	Usage: "person name in British, French, Italy, Spain, Greek, Finalnd and Russia",
 	Description: `
 `,
-	Action: func(c *cli.Context) {
-		for _, w := range dict.PersonDict() {
+	Action: actionByDict(dict.PersonDict),
+}
+
+func actionByDict(dictFunc func() []string) func(*cli.Context) {
+	return func(c *cli.Context) {
+		for _, w := range dictFunc() {
 			fmt.Println(w)
 		}
-	},
+	}
 }
 
 func debug(v ...interface{}) {
