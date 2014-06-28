@@ -8,18 +8,18 @@ import (
 )
 
 var Commands = []cli.Command{
-	commandCommon,
+	commandEnglish,
 	commandPerson,
 	commandGreek,
 	commandNorse,
 }
 
-var commandCommon = cli.Command{
-	Name:  "common",
+var commandEnglish = cli.Command{
+	Name:  "english",
 	Usage: "common English word list",
 	Description: `
 `,
-	Action: actionByDictName("common"),
+	Action: actionByDictName("english"),
 }
 
 var commandGreek = cli.Command{

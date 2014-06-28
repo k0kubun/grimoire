@@ -30,7 +30,7 @@ type Title struct {
 	NetDicTitle string `xml:"span"`
 }
 
-func CommonDict() []string {
+func EnglishDict() []string {
 	words := []string{}
 	for ch := 'a'; ch <= 'z'; ch++ {
 		ws := wordsStartWith(ch)

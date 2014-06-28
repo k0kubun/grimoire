@@ -10,7 +10,7 @@ type DictFuncMap struct {
 }
 
 var dictFuncMaps = []DictFuncMap{
-	{"common", dict.CommonDict},
+	{"english", dict.EnglishDict},
 	{"greek", dict.GreekDict},
 	{"norse", dict.NorseDict},
 	{"person", dict.PersonDict},
