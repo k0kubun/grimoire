@@ -40,7 +40,7 @@ var commandNorse = cli.Command{
 
 var commandPerson = cli.Command{
 	Name:  "person",
-	Usage: "person name in British, French, Italy, Spain, Greek, Finalnd and Russia",
+	Usage: "person name in British, French, Italy, Spain, Greek, Finland and Russia",
 	Description: `
 `,
 	Action: actionByDictName("person"),

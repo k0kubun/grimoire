@@ -24,6 +24,13 @@ $ grimoire -h
 $ grimoire greek
 ```
 
+## Supported Dictionaries
+
+- English
+- Greek Mythology
+- Norse Mythology
+- Person name in British, French, Italy, Spain, Greek, Finland and Russia
+
 ## TODO
 - User-editable dictionary for memoing words you want to use
 - Show dictionary name in output
