@@ -21,7 +21,7 @@ func allDict() []string {
 	for _, dictFuncMap := range dictFuncMaps {
 		all = append(all, loadDictByName(dictFuncMap.Name)...)
 	}
-	return all
+	return formatDict(all)
 }
 
 func loadDictByName(name string) (dict []string) {
