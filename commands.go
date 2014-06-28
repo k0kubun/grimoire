@@ -48,7 +48,9 @@ var commandPerson = cli.Command{
 
 func actionByDictName(name string) func(*cli.Context) {
 	return func(c *cli.Context) {
-		for _, w := range loadDictByName(name) {
+		dict := loadDictByName(name)
+
+		for _, w := range formatDict(dict) {
 			fmt.Println(w)
 		}
 	}

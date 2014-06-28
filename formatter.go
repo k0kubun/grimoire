@@ -18,7 +18,7 @@ func validateWords(words []string) []string {
 			continue
 		}
 
-		// FIXME: sort.StringSlice.Sort() inserts unexpected words which start with '>'
+		// FIXME: CommonDict contains some invalid words like: >demilitarise, >demoralise
 		if word[0] == '>' {
 			continue
 		}
