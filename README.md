@@ -27,7 +27,7 @@ $ grimoire greek
 ## TODO
 - User-editable dictionary for memoing words you want to use
 - Show dictionary name in output
-- Add another dictionary
+- Add another dictionary (Italian, French ...)
 - Cache update option `-u`
 - Ignore case output sort
 - Alphabetize non-alphabet chars
