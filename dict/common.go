@@ -1,4 +1,4 @@
-package main
+package dict
 
 import (
 	"encoding/xml"
@@ -10,14 +10,6 @@ import (
 	"net/url"
 	"strings"
 )
-
-var commandCommon = cli.Command{
-	Name:  "common",
-	Usage: "common English word list",
-	Description: `
-`,
-	Action: commonDict,
-}
 
 type DicItemResult struct {
 	TitleList     TitleList `xml:"TitleList"`
@@ -38,7 +30,7 @@ type Title struct {
 	NetDicTitle string `xml:"span"`
 }
 
-func commonDict(c *cli.Context) {
+func CommonDict(c *cli.Context) {
 	for _, w := range commonWords() {
 		println(w)
 	}
