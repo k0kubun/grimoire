@@ -29,6 +29,7 @@ $ grimoire greek
 - Show dictionary name in output
 - Add another dictionary
 - Cache update option `-u`
+- Ignore case output sort
 
 ## License
 
