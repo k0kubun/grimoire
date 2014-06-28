@@ -14,7 +14,7 @@ $ go get github.com/k0kubun/grimoire
 
 ```bash
 # Output all words
-# It takes much time at first execution
+# It takes TOO MUCH time at first execution
 $ grimoire
 
 # Show dictionary list

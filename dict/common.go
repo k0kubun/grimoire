@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 )
 
 type DicItemResult struct {
@@ -41,6 +42,9 @@ func CommonDict() []string {
 func wordsStartWith(ch rune) []string {
 	totalCount := requestDejizoAPI(ch, 1).TotalHitCount
 	result := requestDejizoAPI(ch, totalCount)
+
+	// 200 ms request interval
+	time.Sleep(200 * time.Millisecond)
 
 	words := []string{}
 	for _, dicItemTitle := range result.TitleList.DicItemTitles {
