@@ -35,6 +35,9 @@ func CommonDict() []string {
 	for ch := 'a'; ch <= 'z'; ch++ {
 		ws := wordsStartWith(ch)
 		words = append(words, ws...)
+
+		// 200 ms request interval
+		time.Sleep(200 * time.Millisecond)
 	}
 	return words
 }
@@ -42,9 +45,6 @@ func CommonDict() []string {
 func wordsStartWith(ch rune) []string {
 	totalCount := requestDejizoAPI(ch, 1).TotalHitCount
 	result := requestDejizoAPI(ch, totalCount)
-
-	// 200 ms request interval
-	time.Sleep(200 * time.Millisecond)
 
 	words := []string{}
 	for _, dicItemTitle := range result.TitleList.DicItemTitles {
