@@ -1,11 +1,29 @@
-grimoire
-====
+# grimoire
 
-## Synopsis
+Utility for naming your softwares or services.  
+Grimoire does just outputting a word list, so you should filter the output with
+[percol](https://github.com/mooz/percol), [peco](https://github.com/peco/peco), etc.
+
+## Installation
+
+```bash
+$ go get github.com/k0kubun/grimoire
+```
 
 ## Usage
 
-## Author
+```bash
+# Output all words
+# It takes much time at first execution
+$ grimoire
 
-[Takashi Kokubun]()
+# Show dictionary list
+$ grimoire -h
 
+# Output specific dictionary
+$ grimoire greek
+```
+
+## License
+
+MIT License
