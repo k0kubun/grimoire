@@ -28,6 +28,7 @@ $ grimoire greek
 - User-editable dictionary for memoing words you want to use
 - Show dictionary name in output
 - Add another dictionary
+- Cache update option `-u`
 
 ## License
 

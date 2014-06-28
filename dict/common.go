@@ -31,7 +31,7 @@ type Title struct {
 
 func CommonDict() []string {
 	words := []string{}
-	for ch := 'a'; ch <= 'a'; ch++ {
+	for ch := 'a'; ch <= 'z'; ch++ {
 		ws := wordsStartWith(ch)
 		words = append(words, ws...)
 	}

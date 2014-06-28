@@ -20,7 +20,7 @@ var commandCommon = cli.Command{
 	Usage: "common English word list",
 	Description: `
 `,
-	Action: actionByDict(dict.CommonDict),
+	Action: actionByDict("common", dict.CommonDict),
 }
 
 var commandGreek = cli.Command{
@@ -28,7 +28,7 @@ var commandGreek = cli.Command{
 	Usage: "greek mythological figures",
 	Description: `
 `,
-	Action: actionByDict(dict.GreekDict),
+	Action: actionByDict("greek", dict.GreekDict),
 }
 
 var commandNorse = cli.Command{
@@ -36,7 +36,7 @@ var commandNorse = cli.Command{
 	Usage: "norse gods and goddesses",
 	Description: `
 `,
-	Action: actionByDict(dict.NorseDict),
+	Action: actionByDict("norse", dict.NorseDict),
 }
 
 var commandPerson = cli.Command{
@@ -44,12 +44,20 @@ var commandPerson = cli.Command{
 	Usage: "person name in British, French, Italy, Spain, Greek, Finalnd and Russia",
 	Description: `
 `,
-	Action: actionByDict(dict.PersonDict),
+	Action: actionByDict("person", dict.PersonDict),
 }
 
-func actionByDict(dictFunc func() []string) func(*cli.Context) {
+func actionByDict(name string, dictFunc func() []string) func(*cli.Context) {
 	return func(c *cli.Context) {
-		for _, w := range dictFunc() {
+		var dict []string
+		if isCached(name) {
+			dict = cachedDict(name)
+		} else {
+			dict = dictFunc()
+			cacheDict(name, dict)
+		}
+
+		for _, w := range dict {
 			fmt.Println(w)
 		}
 	}
