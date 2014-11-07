@@ -4,8 +4,6 @@ Utility for naming your softwares or services.
 Grimoire does just outputting a sorted unique word list, so you should filter the output with
 [percol](https://github.com/mooz/percol), [peco](https://github.com/peco/peco), etc.
 
-![](http://pic.k0kubun.com/jdlQ1BfDiMlEmGt.gif)
-
 ## Installation
 
 ```bash
