@@ -103,7 +103,7 @@ func utf8DocByEucjpUrl(eucjpUrl string) *goquery.Document {
 
 	doc, err := goquery.NewDocumentFromReader(transform.NewReader(resp.Body, japanese.EUCJP.NewDecoder()))
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("Fail to ", err.Error(), ", for: ", eucjpUrl)
 	}
 	return doc
 }
